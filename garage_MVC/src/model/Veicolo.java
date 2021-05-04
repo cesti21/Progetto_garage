@@ -6,13 +6,14 @@ public class Veicolo {
 	private String cognome;
 	private String nome;
 	private String ore;
+	// public int posti = 25;
 
 	public Veicolo(String targa, String modello, String cognome, String nome, String ore) {
 		this.targa = targa;
 		this.modello = modello;
 		this.cognome = cognome;
 		this.nome = nome;
-		this.ore=ore;
+		this.ore = ore;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -47,11 +48,13 @@ public class Veicolo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getOre() {
 		return ore;
 	}
+
 	public void setOre(String ore) {
-		this.ore=ore;
+		this.ore = ore;
 	}
 
 	public String toString() {

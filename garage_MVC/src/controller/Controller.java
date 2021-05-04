@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 import model.Veicolo;
 import view.Garage;
@@ -11,6 +12,7 @@ import view.Garage;
 public class Controller implements ActionListener {
 	private Veicolo d;
 	private Garage g;
+	int posti = 5;
 	private DefaultListModel<Veicolo> listModel;
 
 	public Controller(DefaultListModel listModel, Garage g) {
@@ -22,12 +24,67 @@ public class Controller implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		Veicolo d = listModel.getElementAt(g.list.getSelectedIndex());
-		 d.setTarga(g.targa_auto.getText());
-		 d.setModello(g.modello_auto.getText());
-		 d.setCognome(g.cognome_auto.getText());
-		 d.setCognome(g.nome_auto.getText());
-		 listModel.setElementAt(d, g.list.getSelectedIndex());
-	}
+		if (arg0.getActionCommand().equalsIgnoreCase("SALVA AUTO")) {
+			String a = g.targa_auto.getText();
+			String b = g.modello_auto.getText();
+			String c = g.cognome_auto.getText();
+			String e = g.nome_auto.getText();
+			Veicolo temporanei = new Veicolo(a, b, c, e, null);
+			System.out.println("salva auto");
+			if (posti <= 5 && posti > 0) {
+				g.listModel.addElement(temporanei);
+				posti = posti - 1;
+			} else {
+				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+			}
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
+			String f = g.targa_fur.getText();
+			String h = g.modello_fur.getText();
+			String i = g.cognome_fur.getText();
+			String l = g.nome_fur.getText();
+			Veicolo temporanei = new Veicolo(f, h, i, l, null);
+			System.out.println("salva fur");
+			if (posti <= 5 && posti > 0) {
+				g.listModel.addElement(temporanei);
+				posti = posti - 1;
+			} else {
+				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+			}
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("SALVA MOTO")) {
+			String m = g.targa_moto.getText();
+			String n = g.modello_moto.getText();
+			String o = g.cognome_moto.getText();
+			String p = g.nome_moto.getText();
+			Veicolo temporanei = new Veicolo(m, n, o, p, null);
+			System.out.println("salva moto");
+			if (posti <= 5 && posti > 0) {
+				g.listModel.addElement(temporanei);
+				posti = posti - 1;
+			} else {
+				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+			}
 
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
+			System.out.println("uscita");
+			g.listModel.removeElementAt(g.list.getSelectedIndex());
+			posti = posti + 1;
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("MODIFICA MEZZO")) {
+			Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
+			d.setTarga(g.targa.getText());
+			d.setModello(g.modello.getText());
+			d.setCognome(g.cognome.getText());
+			d.setNome(g.nome.getText());
+			listModel.setElementAt(d, g.list.getSelectedIndex());
+			g.listModel.setElementAt(d, g.list.getSelectedIndex());
+
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
+			JOptionPane.showMessageDialog(null,"rimangono " + posti + " posti" );
+		}
+		
+	}
 }
