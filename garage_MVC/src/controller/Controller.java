@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import model.Veicolo;
@@ -24,6 +25,9 @@ public class Controller implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		/*
+		 * JButton b = (JButton) arg0.getSource(); Panel p = (Panel) b.getParent();
+		 */
 		if (arg0.getActionCommand().equalsIgnoreCase("SALVA AUTO")) {
 			String a = g.targa_auto.getText();
 			String b = g.modello_auto.getText();
@@ -34,6 +38,11 @@ public class Controller implements ActionListener {
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;
+				g.targa_auto.setText("");
+				g.modello_auto.setText("");
+				g.cognome_auto.setText("");
+				g.nome_auto.setText("");
+				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
 			} else {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
@@ -48,6 +57,11 @@ public class Controller implements ActionListener {
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;
+				g.targa_fur.setText("");
+				g.modello_fur.setText("");
+				g.cognome_fur.setText("");
+				g.nome_fur.setText("");
+				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
 			} else {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
@@ -62,6 +76,11 @@ public class Controller implements ActionListener {
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;
+				g.targa_moto.setText("");
+				g.modello_moto.setText("");
+				g.cognome_moto.setText("");
+				g.nome_moto.setText("");
+				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
 			} else {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
@@ -71,6 +90,7 @@ public class Controller implements ActionListener {
 			System.out.println("uscita");
 			g.listModel.removeElementAt(g.list.getSelectedIndex());
 			posti = posti + 1;
+			JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("MODIFICA MEZZO")) {
 			Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
@@ -80,11 +100,16 @@ public class Controller implements ActionListener {
 			d.setNome(g.nome.getText());
 			listModel.setElementAt(d, g.list.getSelectedIndex());
 			g.listModel.setElementAt(d, g.list.getSelectedIndex());
+			g.targa.setText("");
+			g.modello.setText("");
+			g.cognome.setText("");
+			g.nome.setText("");
+			JOptionPane.showMessageDialog(null, "MODIFICATO CON SUCCESSO");
 
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
-			JOptionPane.showMessageDialog(null,"rimangono " + posti + " posti" );
+			JOptionPane.showMessageDialog(null, "rimangono " + posti + " posti");
 		}
-		
+
 	}
 }

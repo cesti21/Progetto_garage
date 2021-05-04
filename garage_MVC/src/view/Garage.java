@@ -64,11 +64,13 @@ public class Garage {
 	private JButton btnCancella;
 	private JButton btnPosti;
 	private JButton btnPosti_1;
-	private JComboBox combo_entrata;
+	private JButton btnHomeAuto;
+	private JButton btnHomeFur;
+	private JButton btnHomeMoto;
+	private JButton btnHomeInfo;
+	public JComboBox combo_entrata;
 	private JComboBox combo_uscita;
-	// int i=0;
 
-	// public int posti = 25;
 	/**
 	 * Launch the application.
 	 */
@@ -97,39 +99,39 @@ public class Garage {
 		Panel panel = new Panel();
 		frame.getContentPane().add(panel, "name_779414315319400");
 
-		JButton btnInformazioni_1_1 = new JButton("INFORMAZIONI");
-		btnInformazioni_1_1.addActionListener(new ActionListener() {
+		JButton btnInformazioni = new JButton("INFORMAZIONI");
+		btnInformazioni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				panel_4.setVisible(true);
 			}
 		});
-		btnInformazioni_1_1.setFont(new Font("Poor Richard", Font.PLAIN, 25));
-		btnInformazioni_1_1.setBackground(Color.WHITE);
+		btnInformazioni.setFont(new Font("Poor Richard", Font.PLAIN, 25));
+		btnInformazioni.setBackground(Color.WHITE);
 
-		JButton btnNewButton = new JButton("AUTO");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAuto = new JButton("AUTO");
+		btnAuto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panel.setVisible(false);
 				panel_1.setVisible(true);
-				System.out.println(combo_entrata.getModel().getSize());
+				//System.out.println(combo_entrata.getModel().getSize());
 				combo_entrata.addItem("ciao");
 				combo_entrata.removeItem("ciao");
 			}
 		});
-		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setFont(new Font("Poor Richard", Font.PLAIN, 25));
-		btnNewButton.setBackground(Color.WHITE);
+		btnAuto.setForeground(Color.BLACK);
+		btnAuto.setFont(new Font("Poor Richard", Font.PLAIN, 25));
+		btnAuto.setBackground(Color.WHITE);
 
-		JButton btnFurgone_1 = new JButton("FURGONE");
-		btnFurgone_1.addActionListener(new ActionListener() {
+		JButton btnFurgone = new JButton("FURGONE");
+		btnFurgone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				panel_2.setVisible(true);
 			}
 		});
-		btnFurgone_1.setFont(new Font("Poor Richard", Font.PLAIN, 25));
-		btnFurgone_1.setBackground(Color.WHITE);
+		btnFurgone.setFont(new Font("Poor Richard", Font.PLAIN, 25));
+		btnFurgone.setBackground(Color.WHITE);
 
 		JButton btnMoto = new JButton("MOTO");
 		btnMoto.addActionListener(new ActionListener() {
@@ -148,8 +150,6 @@ public class Garage {
 		btnPosti = new JButton("POSTI DISPONIBILI");
 		btnPosti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// System.out.println(posti);
-				// JOptionPane.showMessageDialog(null,"rimangono " + posti + " posti" );
 			}
 		});
 		btnPosti.setFont(new Font("Poor Richard", Font.PLAIN, 25));
@@ -158,18 +158,17 @@ public class Garage {
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup().addContainerGap(335, Short.MAX_VALUE)
 						.addComponent(lblNewLabel).addGap(335))
-				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnNewButton).addGap(132)
-						.addComponent(btnFurgone_1).addGap(124).addComponent(btnMoto)
+				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnAuto).addGap(132)
+						.addComponent(btnFurgone).addGap(124).addComponent(btnMoto)
 						.addContainerGap(121, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING,
-						gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni_1_1).addGap(84)
-								.addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE)));
+				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni)
+						.addGap(84).addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE)));
 		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(24)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnNewButton)
-								.addComponent(btnFurgone_1).addComponent(btnMoto))
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnAuto)
+								.addComponent(btnFurgone).addComponent(btnMoto))
 						.addGap(43)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnInformazioni_1_1)
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnInformazioni)
 								.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(58, Short.MAX_VALUE)));
 		panel.setLayout(gl_panel);
@@ -178,8 +177,8 @@ public class Garage {
 
 		frame.getContentPane().add(panel_1, "name_779424883668900");
 
-		JButton btnNewButton_1 = new JButton("HOME");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnHomeAuto = new JButton("HOME");
+		btnHomeAuto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panel_1.setVisible(false);
 				panel.setVisible(true);
@@ -255,8 +254,7 @@ public class Garage {
 						.addGroup(gl_panel_1.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3,
 								GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
-								.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 78,
-										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnHomeAuto, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
 								.addGap(289).addComponent(btnSalvaAuto)))
 				.addContainerGap(112, Short.MAX_VALUE)));
 		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_1
@@ -286,7 +284,7 @@ public class Garage {
 						.addComponent(lblNewLabel_6))
 				.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
 				.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnHomeAuto, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnSalvaAuto, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap()));
 		panel_1.setLayout(gl_panel_1);
@@ -294,8 +292,8 @@ public class Garage {
 		panel_2 = new Panel();
 		frame.getContentPane().add(panel_2, "name_91278755178400");
 
-		JButton btnNewButton_1_2 = new JButton("HOME");
-		btnNewButton_1_2.addActionListener(new ActionListener() {
+		btnHomeFur = new JButton("HOME");
+		btnHomeFur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
 				panel.setVisible(true);
@@ -357,8 +355,7 @@ public class Garage {
 												.addGap(65).addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE,
 														115, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
-								.addComponent(btnNewButton_1_2, GroupLayout.PREFERRED_SIZE, 78,
-										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
 								.addGap(267).addComponent(btnSalvaFur))
 						.addGroup(gl_panel_2.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3_1)))
 						.addContainerGap(122, Short.MAX_VALUE)));
@@ -388,7 +385,7 @@ public class Garage {
 						.addComponent(lblNewLabel_6_1))
 				.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
 				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton_1_2, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnSalvaFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap()));
 		panel_2.setLayout(gl_panel_2);
@@ -396,8 +393,8 @@ public class Garage {
 		panel_3 = new Panel();
 		frame.getContentPane().add(panel_3, "name_91363835423600");
 
-		JButton btnNewButton_1_3 = new JButton("HOME");
-		btnNewButton_1_3.addActionListener(new ActionListener() {
+		btnHomeMoto = new JButton("HOME");
+		btnHomeMoto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_3.setVisible(false);
 				panel.setVisible(true);
@@ -454,8 +451,7 @@ public class Garage {
 										.addComponent(targa_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
 												GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_panel_3.createSequentialGroup().addContainerGap()
-								.addComponent(btnNewButton_1_3, GroupLayout.PREFERRED_SIZE, 78,
-										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnHomeMoto, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
 								.addGap(266).addComponent(btnSalvaMoto, GroupLayout.PREFERRED_SIZE, 120,
 										GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_3.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3_2,
@@ -485,7 +481,7 @@ public class Garage {
 						.addComponent(lblNewLabel_6_2))
 				.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
 				.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton_1_3, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnHomeMoto, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnSalvaMoto, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap()));
 		panel_3.setLayout(gl_panel_3);
@@ -501,8 +497,8 @@ public class Garage {
 
 		JLabel lblNewLabel_7 = new JLabel("0,50\u20AC all'ora");
 
-		JButton btnNewButton_1_3_1 = new JButton("HOME");
-		btnNewButton_1_3_1.addActionListener(new ActionListener() {
+		btnHomeInfo = new JButton("HOME");
+		btnHomeInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_4.setVisible(false);
 				panel.setVisible(true);
@@ -512,20 +508,13 @@ public class Garage {
 		btnCancella = new JButton("USCITA");
 		btnCancella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// listModel.removeElementAt(list.getSelectedIndex());
-				// posti=posti+1;
 			}
 		});
 
 		btnModificaMezzo = new JButton("MODIFICA MEZZO");
 		btnModificaMezzo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*
-				 * Veicolo d = listModel.getElementAt(list.getSelectedIndex());
-				 * d.setTarga(targa.getText()); d.setModello(modello.getText());
-				 * d.setCognome(cognome.getText()); d.setNome(nome.getText());
-				 * listModel.setElementAt(d, list.getSelectedIndex());
-				 */}
+			}
 		});
 
 		targa = new JTextField();
@@ -543,7 +532,6 @@ public class Garage {
 		btnPosti_1 = new JButton("POSTI DISPONIBILI");
 		btnPosti_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// JOptionPane.showMessageDialog(null,"rimangono " + posti + " posti" );
 			}
 		});
 		btnPosti_1.setFont(new Font("Poor Richard", Font.PLAIN, 25));
@@ -566,8 +554,7 @@ public class Garage {
 								.addComponent(targa, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 								.addComponent(modello, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 								.addComponent(cognome, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1_3_1, GroupLayout.PREFERRED_SIZE, 78,
-										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnHomeInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
 								.addComponent(nome, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_4
@@ -607,7 +594,7 @@ public class Garage {
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addPreferredGap(ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
 						.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_4.createSequentialGroup().addGap(40).addComponent(btnNewButton_1_3_1,
+								.addGroup(gl_panel_4.createSequentialGroup().addGap(40).addComponent(btnHomeInfo,
 										GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_panel_4.createSequentialGroup().addGap(18).addComponent(btnPosti_1,
 										GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
