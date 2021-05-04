@@ -61,6 +61,7 @@ public class Garage {
 	private JComboBox combo_entrata;
 	private JComboBox combo_uscita;
 	//int i=0;
+
 	int posti = 25;
 	/**
 	 * Launch the application.
@@ -448,7 +449,7 @@ public class Garage {
 				Veicolo temporanei = new Veicolo(m, j, k, l, ore_3);
 				if(posti<=25) {
 				listModel.addElement(temporanei);
-				posti=posti-1;;
+				posti=posti-1;
 				}else {JOptionPane.showMessageDialog(null,"POSTI ESAURITI" );}
 			}
 		});
