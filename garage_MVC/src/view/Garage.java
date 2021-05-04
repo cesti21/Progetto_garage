@@ -59,8 +59,9 @@ public class Garage {
 	private JTextField nome;
 	private JButton btnModificaMezzo;
 	private JComboBox combo_entrata;
-	int i=0;
-	int posti = 25-i;
+	private JComboBox combo_uscita;
+	//int i=0;
+	int posti = 25;
 	/**
 	 * Launch the application.
 	 */
@@ -231,9 +232,9 @@ public class Garage {
 				String d = nome_auto.getText();
 				String ore = JOptionPane.showInputDialog("Inserisci le ore");
 				Veicolo temporanei = new Veicolo(a, b, c, d, ore);
-				if(i<=25) {
+				if(posti<=25) {
 					listModel.addElement(temporanei);
-					i++;
+					posti=posti-1;
 					}else {JOptionPane.showMessageDialog(null,"POSTI ESAURITI" );}
 			}
 		});
@@ -241,7 +242,7 @@ public class Garage {
 		combo_entrata = new JComboBox();
 		combo_entrata.setModel(new DefaultComboBoxModel(new String[] {"ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		
-		JComboBox combo_uscita = new JComboBox();
+		combo_uscita = new JComboBox();
 		combo_uscita.setModel(new DefaultComboBoxModel(new String[] {"ORARIO USCITA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
@@ -330,9 +331,9 @@ public class Garage {
 				String h = nome_fur.getText();
 				String ore_2 = JOptionPane.showInputDialog("Inserisci le ore");
 				Veicolo temporanei = new Veicolo(e, f, g, h, ore_2);
-				if(i<=25) {
+				if(posti<=25) {
 					listModel.addElement(temporanei);
-					i++;
+					posti=posti-1;
 					}else {JOptionPane.showMessageDialog(null,"POSTI ESAURITI" );}
 			}
 		});
@@ -445,9 +446,9 @@ public class Garage {
 				String l = nome_moto.getText();
 				String ore_3 = JOptionPane.showInputDialog("Inserisci le ore");
 				Veicolo temporanei = new Veicolo(m, j, k, l, ore_3);
-				if(i<=25) {
+				if(posti<=25) {
 				listModel.addElement(temporanei);
-				i++;
+				posti=posti-1;;
 				}else {JOptionPane.showMessageDialog(null,"POSTI ESAURITI" );}
 			}
 		});
@@ -561,7 +562,7 @@ public class Garage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				listModel.removeElementAt(list.getSelectedIndex());
-				i--;
+				posti=posti+1;
 			}
 		});
 
