@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 import controller.Controller;
 import model.Veicolo;
 
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ import java.awt.CardLayout;
 
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.event.ListSelectionEvent;
@@ -31,6 +33,9 @@ import java.awt.SystemColor;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class Garage {
 
@@ -69,7 +74,7 @@ public class Garage {
 	private JButton btnHomeMoto;
 	private JButton btnHomeInfo;
 	public JComboBox combo_entrata;
-	private JComboBox combo_uscita;
+	public JComboBox combo_uscita;
 
 	/**
 	 * Launch the application.
@@ -117,6 +122,7 @@ public class Garage {
 				//System.out.println(combo_entrata.getModel().getSize());
 				combo_entrata.addItem("ciao");
 				combo_entrata.removeItem("ciao");
+				
 			}
 		});
 		btnAuto.setForeground(Color.BLACK);
@@ -155,22 +161,43 @@ public class Garage {
 		btnPosti.setFont(new Font("Poor Richard", Font.PLAIN, 25));
 		btnPosti.setBackground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap(335, Short.MAX_VALUE)
-						.addComponent(lblNewLabel).addGap(335))
-				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnAuto).addGap(132)
-						.addComponent(btnFurgone).addGap(124).addComponent(btnMoto)
-						.addContainerGap(121, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni)
-						.addGap(84).addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(24)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnAuto)
-								.addComponent(btnFurgone).addComponent(btnMoto))
-						.addGap(43)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnInformazioni)
-								.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(58, Short.MAX_VALUE)));
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap(335, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addGap(335))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(130)
+					.addComponent(btnAuto)
+					.addGap(132)
+					.addComponent(btnFurgone)
+					.addGap(124)
+					.addComponent(btnMoto)
+					.addContainerGap(121, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(177)
+					.addComponent(btnInformazioni)
+					.addGap(84)
+					.addComponent(btnPosti)
+					.addContainerGap(155, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel)
+					.addGap(24)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnAuto)
+						.addComponent(btnFurgone)
+						.addComponent(btnMoto))
+					.addGap(43)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnInformazioni)
+						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(73, Short.MAX_VALUE))
+		);
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();
@@ -216,6 +243,11 @@ public class Garage {
 		});
 
 		combo_entrata = new JComboBox();
+		SbloccaCombo sbloccatore = new SbloccaCombo(combo_entrata);
+		targa_auto.addFocusListener(sbloccatore);
+		modello_auto.addFocusListener(sbloccatore);
+		cognome_auto.addFocusListener(sbloccatore);
+		nome_auto.addFocusListener(sbloccatore);
 		combo_entrata.setModel(
 				new DefaultComboBoxModel(new String[] { "ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
@@ -636,6 +668,6 @@ public class Garage {
 		btnCancella.addActionListener(controller);
 		btnPosti_1.addActionListener(controller);
 		btnPosti.addActionListener(controller);
+		combo_entrata.addActionListener(controller);
 	}
-
 }

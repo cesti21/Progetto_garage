@@ -5,7 +5,7 @@ public class Veicolo {
 	private String modello;
 	private String cognome;
 	private String nome;
-	private String ore;
+	public String ore;
 	// public int posti = 25;
 
 	public Veicolo(String targa, String modello, String cognome, String nome, String ore) {

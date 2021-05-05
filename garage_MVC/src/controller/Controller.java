@@ -14,6 +14,7 @@ public class Controller implements ActionListener {
 	private Veicolo d;
 	private Garage g;
 	int posti = 5;
+	int ora;
 	private DefaultListModel<Veicolo> listModel;
 
 	public Controller(DefaultListModel listModel, Garage g) {
@@ -33,6 +34,17 @@ public class Controller implements ActionListener {
 			String b = g.modello_auto.getText();
 			String c = g.cognome_auto.getText();
 			String e = g.nome_auto.getText();
+			if (g.combo_entrata.getSelectedIndex() > 0 && g.combo_uscita.getSelectedIndex() > 0) {
+				String n1 = g.combo_entrata.getSelectedItem().toString();
+				String n2 = g.combo_uscita.getSelectedItem().toString();
+
+				int en = Integer.parseInt(n1);
+				int us = Integer.parseInt(n2);
+
+				ora = us - en;
+				System.out.println(ora);
+			}
+			
 			Veicolo temporanei = new Veicolo(a, b, c, e, null);
 			System.out.println("salva auto");
 			if (posti <= 5 && posti > 0) {
@@ -42,12 +54,12 @@ public class Controller implements ActionListener {
 				g.modello_auto.setText("");
 				g.cognome_auto.setText("");
 				g.nome_auto.setText("");
+
 				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
 			} else {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
-		}
-		if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
+		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
 			String f = g.targa_fur.getText();
 			String h = g.modello_fur.getText();
 			String i = g.cognome_fur.getText();
@@ -65,8 +77,7 @@ public class Controller implements ActionListener {
 			} else {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
-		}
-		if (arg0.getActionCommand().equalsIgnoreCase("SALVA MOTO")) {
+		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA MOTO")) {
 			String m = g.targa_moto.getText();
 			String n = g.modello_moto.getText();
 			String o = g.cognome_moto.getText();
@@ -85,14 +96,12 @@ public class Controller implements ActionListener {
 				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 			}
 
-		}
-		if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
+		} else if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
 			System.out.println("uscita");
 			g.listModel.removeElementAt(g.list.getSelectedIndex());
 			posti = posti + 1;
 			JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
-		}
-		if (arg0.getActionCommand().equalsIgnoreCase("MODIFICA MEZZO")) {
+		} else if (arg0.getActionCommand().equalsIgnoreCase("MODIFICA MEZZO")) {
 			Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
 			d.setTarga(g.targa.getText());
 			d.setModello(g.modello.getText());
@@ -106,10 +115,8 @@ public class Controller implements ActionListener {
 			g.nome.setText("");
 			JOptionPane.showMessageDialog(null, "MODIFICATO CON SUCCESSO");
 
-		}
-		if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
+		} else if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
 			JOptionPane.showMessageDialog(null, "rimangono " + posti + " posti");
 		}
-
 	}
 }
