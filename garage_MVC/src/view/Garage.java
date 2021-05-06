@@ -10,7 +10,6 @@ import javax.swing.SwingConstants;
 import controller.Controller;
 import model.Veicolo;
 
-
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -75,6 +74,10 @@ public class Garage {
 	private JButton btnHomeInfo;
 	public JComboBox combo_entrata;
 	public JComboBox combo_uscita;
+	public JComboBox combo_entrata_fur;
+	public JComboBox combo_uscita_fur;
+	public JComboBox combo_entrata_moto;
+	public JComboBox combo_uscita_moto;
 
 	/**
 	 * Launch the application.
@@ -119,10 +122,10 @@ public class Garage {
 			public void actionPerformed(ActionEvent arg0) {
 				panel.setVisible(false);
 				panel_1.setVisible(true);
-				//System.out.println(combo_entrata.getModel().getSize());
+				// System.out.println(combo_entrata.getModel().getSize());
 				combo_entrata.addItem("ciao");
 				combo_entrata.removeItem("ciao");
-				
+
 			}
 		});
 		btnAuto.setForeground(Color.BLACK);
@@ -134,6 +137,8 @@ public class Garage {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				panel_2.setVisible(true);
+				combo_entrata_fur.addItem("ciao");
+				combo_entrata_fur.removeItem("ciao");
 			}
 		});
 		btnFurgone.setFont(new Font("Poor Richard", Font.PLAIN, 25));
@@ -144,6 +149,8 @@ public class Garage {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				panel_3.setVisible(true);
+				combo_entrata_moto.addItem("ciao");
+				combo_entrata_moto.removeItem("ciao");
 			}
 		});
 		btnMoto.setFont(new Font("Poor Richard", Font.PLAIN, 25));
@@ -161,43 +168,22 @@ public class Garage {
 		btnPosti.setFont(new Font("Poor Richard", Font.PLAIN, 25));
 		btnPosti.setBackground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(335, Short.MAX_VALUE)
-					.addComponent(lblNewLabel)
-					.addGap(335))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(130)
-					.addComponent(btnAuto)
-					.addGap(132)
-					.addComponent(btnFurgone)
-					.addGap(124)
-					.addComponent(btnMoto)
-					.addContainerGap(121, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(177)
-					.addComponent(btnInformazioni)
-					.addGap(84)
-					.addComponent(btnPosti)
-					.addContainerGap(155, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel)
-					.addGap(24)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAuto)
-						.addComponent(btnFurgone)
-						.addComponent(btnMoto))
-					.addGap(43)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnInformazioni)
-						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(73, Short.MAX_VALUE))
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap(335, Short.MAX_VALUE)
+						.addComponent(lblNewLabel).addGap(335))
+				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnAuto).addGap(132)
+						.addComponent(btnFurgone).addGap(124).addComponent(btnMoto)
+						.addContainerGap(121, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni).addGap(84)
+						.addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE)));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
+				gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(24)
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnAuto)
+								.addComponent(btnFurgone).addComponent(btnMoto))
+						.addGap(43)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnInformazioni)
+								.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(73, Short.MAX_VALUE)));
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();
@@ -243,13 +229,14 @@ public class Garage {
 		});
 
 		combo_entrata = new JComboBox();
-		SbloccaCombo sbloccatore = new SbloccaCombo(combo_entrata);
+		SbloccaCombo sbloccatore = new SbloccaCombo(combo_entrata, combo_entrata_fur, combo_entrata_moto);
 		targa_auto.addFocusListener(sbloccatore);
 		modello_auto.addFocusListener(sbloccatore);
 		cognome_auto.addFocusListener(sbloccatore);
 		nome_auto.addFocusListener(sbloccatore);
 		combo_entrata.setModel(
-				new DefaultComboBoxModel(new String[] {"ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+				new DefaultComboBoxModel(new String[] { "ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
 
 		combo_uscita = new JComboBox();
 		combo_uscita.setModel(
@@ -361,76 +348,86 @@ public class Garage {
 		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
-		JComboBox combo_entrata_fur = new JComboBox();
-		combo_entrata_fur.setModel(new DefaultComboBoxModel(new String[] {"ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
-		
-		JComboBox combo_uscita_fur = new JComboBox();
-		combo_uscita_fur.setModel(new DefaultComboBoxModel(new String[] {"ORARIO USCITA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		combo_entrata_fur = new JComboBox();
+		SbloccaCombo sbloccatore1 = new SbloccaCombo(combo_entrata_fur, combo_entrata, combo_entrata_moto);
+
+		targa_fur.addFocusListener(sbloccatore1);
+		modello_fur.addFocusListener(sbloccatore1);
+		cognome_fur.addFocusListener(sbloccatore1);
+		nome_fur.addFocusListener(sbloccatore1);
+		combo_entrata_fur.setModel(
+				new DefaultComboBoxModel(new String[] { "ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+
+		combo_uscita_fur = new JComboBox();
+		combo_uscita_fur.setModel(
+				new DefaultComboBoxModel(new String[] { "ORARIO USCITA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_2.createSequentialGroup()
-							.addGap(244)
-							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
-									.addComponent(lblNewLabel_5_1)
-									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel_4_1)
-										.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
-								.addComponent(lblNewLabel_6_1))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-								.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel_2.createSequentialGroup()
-									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-										.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-										.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
-									.addGap(65)
-									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-										.addComponent(combo_uscita_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
-						.addGroup(gl_panel_2.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-							.addGap(267)
-							.addComponent(btnSalvaFur))
-						.addGroup(gl_panel_2.createSequentialGroup()
-							.addGap(360)
-							.addComponent(lblNewLabel_3_1)))
-					.addContainerGap(105, Short.MAX_VALUE))
-		);
-		gl_panel_2.setVerticalGroup(
-			gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup().addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_2.createSequentialGroup().addGap(244)
+								.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_2
+										.createParallelGroup(Alignment.TRAILING).addComponent(lblNewLabel_5_1)
+										.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+												.addComponent(lblNewLabel_4_1).addComponent(lblNewLabel_2_1,
+														GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
+										.addComponent(lblNewLabel_6_1))
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addGroup(gl_panel_2
+										.createParallelGroup(Alignment.LEADING)
+										.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, 229,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, 229,
+												GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_panel_2.createSequentialGroup()
+														.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(18).addComponent(combo_entrata_fur,
+																GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.PREFERRED_SIZE))
+												.addGroup(gl_panel_2.createSequentialGroup()
+														.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(18).addComponent(combo_uscita_fur,
+																GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
+								.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+								.addGap(267).addComponent(btnSalvaFur))
+						.addGroup(gl_panel_2.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3_1)))
+						.addContainerGap(152, Short.MAX_VALUE)));
+		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_2
+				.createSequentialGroup().addContainerGap()
+				.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_4_1)
-						.addComponent(combo_uscita_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+				.addGap(18)
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_4_1).addComponent(combo_uscita_fur, GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGap(18)
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_5_1))
-					.addGap(18)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addGap(18)
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_6_1))
-					.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+				.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnSalvaFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
+				.addContainerGap()));
 		panel_2.setLayout(gl_panel_2);
 
 		panel_3 = new Panel();
@@ -473,6 +470,22 @@ public class Garage {
 		JLabel lblNewLabel_3_2 = new JLabel("DATI MOTO");
 		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+
+		combo_entrata_moto = new JComboBox();
+		SbloccaCombo sbloccatore2 = new SbloccaCombo(combo_entrata, combo_entrata_fur, combo_entrata_moto);
+
+		targa_moto.addFocusListener(sbloccatore2);
+		modello_moto.addFocusListener(sbloccatore2);
+		cognome_moto.addFocusListener(sbloccatore2);
+		nome_moto.addFocusListener(sbloccatore2);
+		combo_entrata_moto.setModel(
+				new DefaultComboBoxModel(new String[] { "ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+
+		combo_uscita_moto = new JComboBox();
+		combo_uscita_moto.setModel(
+				new DefaultComboBoxModel(new String[] { "ORARIO USCITA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_3.createSequentialGroup().addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
@@ -487,31 +500,44 @@ public class Garage {
 								.addGroup(gl_panel_3.createParallelGroup(Alignment.TRAILING)
 										.addComponent(cognome_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
 												GroupLayout.PREFERRED_SIZE)
-										.addComponent(modello_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
+										.addComponent(
+												nome_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
 												GroupLayout.PREFERRED_SIZE)
-										.addComponent(nome_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(targa_moto, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 229,
-												GroupLayout.PREFERRED_SIZE)))
+										.addGroup(Alignment.LEADING, gl_panel_3.createSequentialGroup()
+												.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
+														.addComponent(targa_moto, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(modello_moto, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE))
+												.addGap(63)
+												.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
+														.addComponent(combo_uscita_moto, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(combo_entrata_moto, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE,
+																GroupLayout.PREFERRED_SIZE)))))
 						.addGroup(gl_panel_3.createSequentialGroup().addContainerGap()
 								.addComponent(btnHomeMoto, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
 								.addGap(266).addComponent(btnSalvaMoto, GroupLayout.PREFERRED_SIZE, 120,
 										GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_3.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3_2,
 								GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap(302, Short.MAX_VALUE)));
+						.addContainerGap(208, Short.MAX_VALUE)));
 		gl_panel_3.setVerticalGroup(gl_panel_3.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_3
 				.createSequentialGroup().addContainerGap()
 				.addComponent(lblNewLabel_3_2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
 						.addComponent(targa_moto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2_2, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel_2_2, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+						.addComponent(combo_entrata_moto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
 				.addGap(18)
 				.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
 						.addComponent(modello_moto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_4_2))
+						.addComponent(lblNewLabel_4_2).addComponent(combo_uscita_moto, GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 				.addGap(18)
 				.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
 						.addComponent(cognome_moto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,

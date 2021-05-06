@@ -27,9 +27,6 @@ public class Controller implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		/*
-		 * JButton b = (JButton) arg0.getSource(); Panel p = (Panel) b.getParent();
-		 */
 		if (arg0.getActionCommand().equalsIgnoreCase("SALVA AUTO")) {
 			String a = g.targa_auto.getText();
 			String b = g.modello_auto.getText();
@@ -43,12 +40,12 @@ public class Controller implements ActionListener {
 				int us = Integer.parseInt(n2);
 
 				ora = us - en;
-				System.out.println(ora);
+				// System.out.println(ora);
 			}
-			int ore=ora;
-			
+			int ore = ora;
+
 			Veicolo temporanei = new Veicolo(a, b, c, e, ore);
-			System.out.println("salva auto");
+			// System.out.println("salva auto");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;
@@ -66,8 +63,19 @@ public class Controller implements ActionListener {
 			String h = g.modello_fur.getText();
 			String i = g.cognome_fur.getText();
 			String l = g.nome_fur.getText();
+			if (g.combo_entrata_fur.getSelectedIndex() > 0 && g.combo_uscita_fur.getSelectedIndex() > 0) {
+				String n3 = g.combo_entrata_fur.getSelectedItem().toString();
+				String n4 = g.combo_uscita_fur.getSelectedItem().toString();
+
+				int enf = Integer.parseInt(n3);
+				int usf = Integer.parseInt(n4);
+
+				ora = usf - enf;
+				// System.out.println(ora);
+			}
+			int ore = ora;
 			Veicolo temporanei = new Veicolo(f, h, i, l, ore);
-			System.out.println("salva fur");
+			// System.out.println("salva fur");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;
@@ -84,8 +92,19 @@ public class Controller implements ActionListener {
 			String n = g.modello_moto.getText();
 			String o = g.cognome_moto.getText();
 			String p = g.nome_moto.getText();
+			if (g.combo_entrata_moto.getSelectedIndex() > 0 && g.combo_uscita_moto.getSelectedIndex() > 0) {
+				String n5 = g.combo_entrata_moto.getSelectedItem().toString();
+				String n6 = g.combo_uscita_moto.getSelectedItem().toString();
+
+				int enm = Integer.parseInt(n5);
+				int usm = Integer.parseInt(n6);
+
+				ora = usm - enm;
+				// System.out.println(ora);
+			}
+			int ore = ora;
 			Veicolo temporanei = new Veicolo(m, n, o, p, ore);
-			System.out.println("salva moto");
+			// System.out.println("salva moto");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
 				posti = posti - 1;

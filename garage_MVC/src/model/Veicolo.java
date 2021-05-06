@@ -6,7 +6,6 @@ public class Veicolo {
 	private String cognome;
 	private String nome;
 	public int ore;
-	// public int posti = 25;
 
 	public Veicolo(String targa, String modello, String cognome, String nome, int ore) {
 		this.targa = targa;
