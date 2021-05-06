@@ -249,8 +249,7 @@ public class Garage {
 		cognome_auto.addFocusListener(sbloccatore);
 		nome_auto.addFocusListener(sbloccatore);
 		combo_entrata.setModel(
-				new DefaultComboBoxModel(new String[] { "ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-						"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+				new DefaultComboBoxModel(new String[] {"ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 
 		combo_uscita = new JComboBox();
 		combo_uscita.setModel(
@@ -363,63 +362,75 @@ public class Garage {
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
 		JComboBox combo_entrata_fur = new JComboBox();
+		combo_entrata_fur.setModel(new DefaultComboBoxModel(new String[] {"ORARIO ENTRATA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		
+		JComboBox combo_uscita_fur = new JComboBox();
+		combo_uscita_fur.setModel(new DefaultComboBoxModel(new String[] {"ORARIO USCITA", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup().addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_2.createSequentialGroup().addGap(244)
-								.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_2
-										.createParallelGroup(Alignment.TRAILING).addComponent(lblNewLabel_5_1)
-										.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_4_1).addComponent(lblNewLabel_2_1,
-														GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
-										.addComponent(lblNewLabel_6_1))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-										.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, 229,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, 229,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, 229,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_panel_2.createSequentialGroup()
-												.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, 229,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(65).addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE,
-														115, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
-								.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-								.addGap(267).addComponent(btnSalvaFur))
-						.addGroup(gl_panel_2.createSequentialGroup().addGap(360).addComponent(lblNewLabel_3_1)))
-						.addContainerGap(122, Short.MAX_VALUE)));
-		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_2
-				.createSequentialGroup().addContainerGap()
-				.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(244)
+							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
+									.addComponent(lblNewLabel_5_1)
+									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_4_1)
+										.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(lblNewLabel_6_1))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+								.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+								.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_panel_2.createSequentialGroup()
+									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+										.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+										.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
+									.addGap(65)
+									.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+										.addComponent(combo_uscita_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+							.addGap(267)
+							.addComponent(btnSalvaFur))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(360)
+							.addComponent(lblNewLabel_3_1)))
+					.addContainerGap(105, Short.MAX_VALUE))
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_4_1))
-				.addGap(18)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+						.addComponent(targa_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(combo_entrata_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(modello_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_4_1)
+						.addComponent(combo_uscita_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(cognome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_5_1))
-				.addGap(18)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(nome_fur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_6_1))
-				.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-				.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+					.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnHomeFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnSalvaFur, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap()));
+					.addContainerGap())
+		);
 		panel_2.setLayout(gl_panel_2);
 
 		panel_3 = new Panel();

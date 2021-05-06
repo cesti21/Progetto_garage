@@ -15,6 +15,7 @@ public class Controller implements ActionListener {
 	private Garage g;
 	int posti = 5;
 	int ora;
+	int ore;
 	private DefaultListModel<Veicolo> listModel;
 
 	public Controller(DefaultListModel listModel, Garage g) {
@@ -44,8 +45,9 @@ public class Controller implements ActionListener {
 				ora = us - en;
 				System.out.println(ora);
 			}
+			int ore=ora;
 			
-			Veicolo temporanei = new Veicolo(a, b, c, e, null);
+			Veicolo temporanei = new Veicolo(a, b, c, e, ore);
 			System.out.println("salva auto");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
@@ -64,7 +66,7 @@ public class Controller implements ActionListener {
 			String h = g.modello_fur.getText();
 			String i = g.cognome_fur.getText();
 			String l = g.nome_fur.getText();
-			Veicolo temporanei = new Veicolo(f, h, i, l, null);
+			Veicolo temporanei = new Veicolo(f, h, i, l, ore);
 			System.out.println("salva fur");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);
@@ -82,7 +84,7 @@ public class Controller implements ActionListener {
 			String n = g.modello_moto.getText();
 			String o = g.cognome_moto.getText();
 			String p = g.nome_moto.getText();
-			Veicolo temporanei = new Veicolo(m, n, o, p, null);
+			Veicolo temporanei = new Veicolo(m, n, o, p, ore);
 			System.out.println("salva moto");
 			if (posti <= 5 && posti > 0) {
 				g.listModel.addElement(temporanei);

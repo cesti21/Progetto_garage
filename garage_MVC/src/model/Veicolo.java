@@ -5,10 +5,10 @@ public class Veicolo {
 	private String modello;
 	private String cognome;
 	private String nome;
-	public String ore;
+	public int ore;
 	// public int posti = 25;
 
-	public Veicolo(String targa, String modello, String cognome, String nome, String ore) {
+	public Veicolo(String targa, String modello, String cognome, String nome, int ore) {
 		this.targa = targa;
 		this.modello = modello;
 		this.cognome = cognome;
@@ -49,11 +49,11 @@ public class Veicolo {
 		this.nome = nome;
 	}
 
-	public String getOre() {
+	public int getOre() {
 		return ore;
 	}
 
-	public void setOre(String ore) {
+	public void setOre(int ore) {
 		this.ore = ore;
 	}
 
