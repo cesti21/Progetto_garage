@@ -40,23 +40,27 @@ public class Controller implements ActionListener {
 				int us = Integer.parseInt(n2);
 
 				ora = us - en;
-				// System.out.println(ora);
 			}
-			int ore = ora;
-
-			Veicolo temporanei = new Veicolo(a, b, c, e, ore);
-			// System.out.println("salva auto");
-			if (posti <= 5 && posti > 0) {
-				g.listModel.addElement(temporanei);
-				posti = posti - 1;
-				g.targa_auto.setText("");
-				g.modello_auto.setText("");
-				g.cognome_auto.setText("");
-				g.nome_auto.setText("");
-
-				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+			ore = ora;
+			if (a.equals("") || b.equals("") || c.equals("") || e.equals("") || g.combo_entrata.getSelectedIndex() == 0
+					|| g.combo_uscita.getSelectedIndex() == 0) {
+				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
 			} else {
-				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				Veicolo temporanei = new Veicolo(a, b, c, e, ore);
+				if (posti <= 5 && posti > 0) {
+					g.listModel.addElement(temporanei);
+					posti = posti - 1;
+					g.targa_auto.setText("");
+					g.modello_auto.setText("");
+					g.cognome_auto.setText("");
+					g.nome_auto.setText("");
+					g.combo_entrata.setSelectedIndex(0);
+					g.combo_uscita.setSelectedIndex(0);
+
+					JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+				} else {
+					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				}
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
 			String f = g.targa_fur.getText();
@@ -71,21 +75,26 @@ public class Controller implements ActionListener {
 				int usf = Integer.parseInt(n4);
 
 				ora = usf - enf;
-				// System.out.println(ora);
 			}
-			int ore = ora;
-			Veicolo temporanei = new Veicolo(f, h, i, l, ore);
-			// System.out.println("salva fur");
-			if (posti <= 5 && posti > 0) {
-				g.listModel.addElement(temporanei);
-				posti = posti - 1;
-				g.targa_fur.setText("");
-				g.modello_fur.setText("");
-				g.cognome_fur.setText("");
-				g.nome_fur.setText("");
-				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+			ore = ora;
+			if (f.equals("") || h.equals("") || i.equals("") || l.equals("")
+					|| g.combo_entrata_fur.getSelectedIndex() == 0 || g.combo_uscita_fur.getSelectedIndex() == 0) {
+				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
 			} else {
-				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				Veicolo temporanei = new Veicolo(f, h, i, l, ore);
+				if (posti <= 5 && posti > 0) {
+					g.listModel.addElement(temporanei);
+					posti = posti - 1;
+					g.targa_fur.setText("");
+					g.modello_fur.setText("");
+					g.cognome_fur.setText("");
+					g.nome_fur.setText("");
+					g.combo_entrata_fur.setSelectedIndex(0);
+					g.combo_uscita_fur.setSelectedIndex(0);
+					JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+				} else {
+					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				}
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA MOTO")) {
 			String m = g.targa_moto.getText();
@@ -100,44 +109,68 @@ public class Controller implements ActionListener {
 				int usm = Integer.parseInt(n6);
 
 				ora = usm - enm;
-				// System.out.println(ora);
 			}
-			int ore = ora;
-			Veicolo temporanei = new Veicolo(m, n, o, p, ore);
-			// System.out.println("salva moto");
-			if (posti <= 5 && posti > 0) {
-				g.listModel.addElement(temporanei);
-				posti = posti - 1;
-				g.targa_moto.setText("");
-				g.modello_moto.setText("");
-				g.cognome_moto.setText("");
-				g.nome_moto.setText("");
-				JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+			ore = ora;
+			if (m.equals("") || n.equals("") || o.equals("") || p.equals("")
+					|| g.combo_entrata_moto.getSelectedIndex() == 0 || g.combo_uscita_moto.getSelectedIndex() == 0) {
+				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
 			} else {
-				JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				Veicolo temporanei = new Veicolo(m, n, o, p, ore);
+				if (posti <= 5 && posti > 0) {
+					g.listModel.addElement(temporanei);
+					posti = posti - 1;
+					g.targa_moto.setText("");
+					g.modello_moto.setText("");
+					g.cognome_moto.setText("");
+					g.nome_moto.setText("");
+					g.combo_entrata_moto.setSelectedIndex(0);
+					g.combo_uscita_moto.setSelectedIndex(0);
+					JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+				} else {
+					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+				}
 			}
-
 		} else if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
-			System.out.println("uscita");
-			g.listModel.removeElementAt(g.list.getSelectedIndex());
-			posti = posti + 1;
-			JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
+			if (g.list.getSelectedIndex() > -1) {
+				g.listModel.removeElementAt(g.list.getSelectedIndex());
+				posti = posti + 1;
+				g.targa.setText("");
+				g.modello.setText("");
+				g.cognome.setText("");
+				g.nome.setText("");
+				JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
+			} else {
+				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
+			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("MODIFICA MEZZO")) {
-			Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
-			d.setTarga(g.targa.getText());
-			d.setModello(g.modello.getText());
-			d.setCognome(g.cognome.getText());
-			d.setNome(g.nome.getText());
-			listModel.setElementAt(d, g.list.getSelectedIndex());
-			g.listModel.setElementAt(d, g.list.getSelectedIndex());
-			g.targa.setText("");
-			g.modello.setText("");
-			g.cognome.setText("");
-			g.nome.setText("");
-			JOptionPane.showMessageDialog(null, "MODIFICATO CON SUCCESSO");
-
+			if (g.list.getSelectedIndex() > -1) {
+				Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
+				d.setTarga(g.targa.getText());
+				d.setModello(g.modello.getText());
+				d.setCognome(g.cognome.getText());
+				d.setNome(g.nome.getText());
+				listModel.setElementAt(d, g.list.getSelectedIndex());
+				g.listModel.setElementAt(d, g.list.getSelectedIndex());
+				g.targa.setText("");
+				g.modello.setText("");
+				g.cognome.setText("");
+				g.nome.setText("");
+				JOptionPane.showMessageDialog(null, "MODIFICATO CON SUCCESSO");
+			} else {
+				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
+			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
 			JOptionPane.showMessageDialog(null, "rimangono " + posti + " posti");
+		} else if (arg0.getActionCommand().equalsIgnoreCase("calcola costo")) {
+			if (g.list.getSelectedIndex() > -1) {
+				Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
+				System.out.println(ore);
+				float prezzo = ore * 0.5f;
+				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
+			} else {
+				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
+			}
 		}
+
 	}
 }
