@@ -23,6 +23,7 @@ public class Controller implements ActionListener {
 	int posti = 5;
 	int ora;
 	int ore;
+	float prezzo;
 	private DefaultListModel<Veicolo> listModel;
 
 	/**
@@ -63,27 +64,27 @@ public class Controller implements ActionListener {
 			if (ore < 0) {
 				ore = 24 + ore;
 			}
-				if (a.equals("") || b.equals("") || c.equals("") || e.equals("")
-						|| g.combo_entrata.getSelectedIndex() == 0 || g.combo_uscita.getSelectedIndex() == 0) {
-					JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
-				} else {
-					Veicolo temporanei = new Veicolo(a, b, c, e, ore);
-					if (posti <= 5 && posti > 0) {
-						g.listModel.addElement(temporanei);
-						posti = posti - 1;
-						g.targa_auto.setText("");
-						g.modello_auto.setText("");
-						g.cognome_auto.setText("");
-						g.nome_auto.setText("");
-						g.combo_entrata.setSelectedIndex(0);
-						g.combo_uscita.setSelectedIndex(0);
+			if (a.equals("") || b.equals("") || c.equals("") || e.equals("") || g.combo_entrata.getSelectedIndex() == 0
+					|| g.combo_uscita.getSelectedIndex() == 0) {
+				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
+			} else {
+				Veicolo temporanei = new Veicolo(a, b, c, e, ore);
+				if (posti <= 5 && posti > 0) {
+					g.listModel.addElement(temporanei);
+					posti = posti - 1;
+					g.targa_auto.setText("");
+					g.modello_auto.setText("");
+					g.cognome_auto.setText("");
+					g.nome_auto.setText("");
+					g.combo_entrata.setSelectedIndex(0);
+					g.combo_uscita.setSelectedIndex(0);
 
-						JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
-					} else {
-						JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
-					}
+					JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+				} else {
+					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 				}
-			
+			}
+
 		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
 			String f = g.targa_fur.getText();
 			String h = g.modello_fur.getText();
@@ -158,6 +159,15 @@ public class Controller implements ActionListener {
 					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
 				}
 			}
+		} else if (arg0.getActionCommand().equalsIgnoreCase("calcola costo")) {
+			if (g.list.getSelectedIndex() > -1) {
+				Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
+				//System.out.println(ore);
+				prezzo = ore * 0.5f;
+				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
+			} else {
+				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
+			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
 			if (g.list.getSelectedIndex() > -1) {
 				g.listModel.removeElementAt(g.list.getSelectedIndex());
@@ -166,6 +176,7 @@ public class Controller implements ActionListener {
 				g.modello.setText("");
 				g.cognome.setText("");
 				g.nome.setText("");
+				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
 				JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
 			} else {
 				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
@@ -186,18 +197,13 @@ public class Controller implements ActionListener {
 				JOptionPane.showMessageDialog(null, "MODIFICATO CON SUCCESSO");
 			} else {
 				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
+				g.targa.setText("");
+				g.modello.setText("");
+				g.cognome.setText("");
+				g.nome.setText("");
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
-			JOptionPane.showMessageDialog(null, "rimangono " + posti + " posti");
-		} else if (arg0.getActionCommand().equalsIgnoreCase("calcola costo")) {
-			if (g.list.getSelectedIndex() > -1) {
-				Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
-				System.out.println(ore);
-				float prezzo = ore * 0.5f;
-				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
-			} else {
-				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
-			}
+			JOptionPane.showMessageDialog(null, "RIMANGONO " + posti + " POSTI");
 		}
 
 	}
