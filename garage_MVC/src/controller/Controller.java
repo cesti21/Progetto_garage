@@ -12,6 +12,7 @@ import view.Garage;
 
 /**
  * questa classe esegue le operazioni del programma
+ * 
  * @author andrea cestaro e francesco marsura
  *
  */
@@ -59,26 +60,30 @@ public class Controller implements ActionListener {
 				ora = us - en;
 			}
 			ore = ora;
-			if (a.equals("") || b.equals("") || c.equals("") || e.equals("") || g.combo_entrata.getSelectedIndex() == 0
-					|| g.combo_uscita.getSelectedIndex() == 0) {
-				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
-			} else {
-				Veicolo temporanei = new Veicolo(a, b, c, e, ore);
-				if (posti <= 5 && posti > 0) {
-					g.listModel.addElement(temporanei);
-					posti = posti - 1;
-					g.targa_auto.setText("");
-					g.modello_auto.setText("");
-					g.cognome_auto.setText("");
-					g.nome_auto.setText("");
-					g.combo_entrata.setSelectedIndex(0);
-					g.combo_uscita.setSelectedIndex(0);
-
-					JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
-				} else {
-					JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
-				}
+			if (ore < 0) {
+				ore = 24 + ore;
 			}
+				if (a.equals("") || b.equals("") || c.equals("") || e.equals("")
+						|| g.combo_entrata.getSelectedIndex() == 0 || g.combo_uscita.getSelectedIndex() == 0) {
+					JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
+				} else {
+					Veicolo temporanei = new Veicolo(a, b, c, e, ore);
+					if (posti <= 5 && posti > 0) {
+						g.listModel.addElement(temporanei);
+						posti = posti - 1;
+						g.targa_auto.setText("");
+						g.modello_auto.setText("");
+						g.cognome_auto.setText("");
+						g.nome_auto.setText("");
+						g.combo_entrata.setSelectedIndex(0);
+						g.combo_uscita.setSelectedIndex(0);
+
+						JOptionPane.showMessageDialog(null, "SALVATO CON SUCCESSO");
+					} else {
+						JOptionPane.showMessageDialog(null, "POSTI ESAURITI");
+					}
+				}
+			
 		} else if (arg0.getActionCommand().equalsIgnoreCase("SALVA FURGONE")) {
 			String f = g.targa_fur.getText();
 			String h = g.modello_fur.getText();
@@ -94,6 +99,9 @@ public class Controller implements ActionListener {
 				ora = usf - enf;
 			}
 			ore = ora;
+			if (ore < 0) {
+				ore = 24 + ore;
+			}
 			if (f.equals("") || h.equals("") || i.equals("") || l.equals("")
 					|| g.combo_entrata_fur.getSelectedIndex() == 0 || g.combo_uscita_fur.getSelectedIndex() == 0) {
 				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");
@@ -128,6 +136,9 @@ public class Controller implements ActionListener {
 				ora = usm - enm;
 			}
 			ore = ora;
+			if (ore < 0) {
+				ore = 24 + ore;
+			}
 			if (m.equals("") || n.equals("") || o.equals("") || p.equals("")
 					|| g.combo_entrata_moto.getSelectedIndex() == 0 || g.combo_uscita_moto.getSelectedIndex() == 0) {
 				JOptionPane.showMessageDialog(null, "TUTTI I CAMPI DEVONO ESSERE COMPILATI!!");

@@ -104,7 +104,7 @@ public class Garage {
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
 		Panel panel = new Panel();
-		panel.setBackground(new Color(0, 0, 255));
+		panel.setBackground(new Color(0, 255, 127));
 		frame.getContentPane().add(panel, "name_779414315319400");
 
 		JButton btnInformazioni = new JButton("INFORMAZIONI");
@@ -187,7 +187,7 @@ public class Garage {
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();
-		panel_1.setBackground(new Color(0, 0, 255));
+		panel_1.setBackground(new Color(0, 255, 127));
 
 		frame.getContentPane().add(panel_1, "name_779424883668900");
 
@@ -309,7 +309,7 @@ public class Garage {
 		panel_1.setLayout(gl_panel_1);
 
 		panel_2 = new Panel();
-		panel_2.setBackground(new Color(0, 0, 255));
+		panel_2.setBackground(new Color(0, 255, 127));
 		frame.getContentPane().add(panel_2, "name_91278755178400");
 
 		btnHomeFur = new JButton("HOME");
@@ -433,7 +433,7 @@ public class Garage {
 		panel_2.setLayout(gl_panel_2);
 
 		panel_3 = new Panel();
-		panel_3.setBackground(new Color(0, 0, 255));
+		panel_3.setBackground(new Color(0, 255, 127));
 		frame.getContentPane().add(panel_3, "name_91363835423600");
 
 		btnHomeMoto = new JButton("HOME");
@@ -559,7 +559,7 @@ public class Garage {
 		panel_3.setLayout(gl_panel_3);
 
 		panel_4 = new Panel();
-		panel_4.setBackground(new Color(0, 0, 255));
+		panel_4.setBackground(new Color(0, 255, 127));
 		frame.getContentPane().add(panel_4, "name_93696244716700");
 
 		JLabel lblNewLabel_3_2_1 = new JLabel("INFORMAZIONI");
