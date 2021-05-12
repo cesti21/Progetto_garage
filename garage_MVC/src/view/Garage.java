@@ -36,6 +36,11 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+/**
+ * questa classe crea la grafica
+ * @author andrea cestaro e francesco marsura
+ *
+ */
 public class Garage {
 
 	private JFrame frame;
@@ -81,13 +86,9 @@ public class Garage {
 	public JComboBox combo_uscita_moto;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the application.
+	 * costruttore garage
 	 * 
-	 * @param listModel2
+	 * @param listModel listmodel
 	 */
 	public Garage(DefaultListModel listModel) {
 		initialize();
@@ -95,18 +96,15 @@ public class Garage {
 		list.setModel(listModel);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 864, 315);
+		frame.setBounds(100, 100, 864, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
 		Panel panel = new Panel();
-		panel.setBackground(Color.GREEN);
+		panel.setBackground(new Color(0, 0, 255));
 		frame.getContentPane().add(panel, "name_779414315319400");
 
 		JButton btnInformazioni = new JButton("INFORMAZIONI");
@@ -189,7 +187,7 @@ public class Garage {
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();
-		panel_1.setBackground(Color.GREEN);
+		panel_1.setBackground(new Color(0, 0, 255));
 
 		frame.getContentPane().add(panel_1, "name_779424883668900");
 
@@ -311,7 +309,7 @@ public class Garage {
 		panel_1.setLayout(gl_panel_1);
 
 		panel_2 = new Panel();
-		panel_2.setBackground(Color.GREEN);
+		panel_2.setBackground(new Color(0, 0, 255));
 		frame.getContentPane().add(panel_2, "name_91278755178400");
 
 		btnHomeFur = new JButton("HOME");
@@ -435,7 +433,7 @@ public class Garage {
 		panel_2.setLayout(gl_panel_2);
 
 		panel_3 = new Panel();
-		panel_3.setBackground(Color.GREEN);
+		panel_3.setBackground(new Color(0, 0, 255));
 		frame.getContentPane().add(panel_3, "name_91363835423600");
 
 		btnHomeMoto = new JButton("HOME");
@@ -561,7 +559,7 @@ public class Garage {
 		panel_3.setLayout(gl_panel_3);
 
 		panel_4 = new Panel();
-		panel_4.setBackground(Color.GREEN);
+		panel_4.setBackground(new Color(0, 0, 255));
 		frame.getContentPane().add(panel_4, "name_93696244716700");
 
 		JLabel lblNewLabel_3_2_1 = new JLabel("INFORMAZIONI");
@@ -615,113 +613,93 @@ public class Garage {
 		btnCosto = new JButton("calcola costo");
 		btnCosto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 
 			}
 		});
-		
+
 		JLabel lblNewLabel_1 = new JLabel("TARGA");
-		
+
 		JLabel lblNewLabel_8 = new JLabel("MODELLO");
-		
+
 		JLabel lblNewLabel_9 = new JLabel("COGNOME");
-		
+
 		JLabel lblNewLabel_10 = new JLabel("NOME");
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
-		gl_panel_4.setHorizontalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+		gl_panel_4.setHorizontalGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_4.createSequentialGroup().addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_4.createSequentialGroup().addGap(362).addComponent(lblNewLabel_3_2_1))
 						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGap(362)
-							.addComponent(lblNewLabel_3_2_1))
+								.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_panel_4.createSequentialGroup().addContainerGap()
+												.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+														.addComponent(targa, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(btnHomeInfo, GroupLayout.PREFERRED_SIZE, 78,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(cognome, GroupLayout.PREFERRED_SIZE, 229,
+																GroupLayout.PREFERRED_SIZE)))
+										.addGroup(gl_panel_4.createSequentialGroup().addGap(102)
+												.addComponent(lblNewLabel_10))
+										.addGroup(gl_panel_4.createSequentialGroup().addGap(92)
+												.addComponent(lblNewLabel_9))
+										.addGroup(gl_panel_4.createSequentialGroup().addGap(95).addComponent(
+												lblNewLabel_8))
+										.addGroup(gl_panel_4.createSequentialGroup().addContainerGap().addComponent(
+												modello, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)))
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_4
+										.createSequentialGroup().addGap(43)
+										.addComponent(list, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE)
+										.addGap(30)
+										.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+												.addComponent(btnCancella)
+												.addGroup(gl_panel_4.createSequentialGroup().addComponent(lblNewLabel_7)
+														.addPreferredGap(ComponentPlacement.UNRELATED)
+														.addComponent(btnCosto))
+												.addComponent(btnModificaMezzo, GroupLayout.PREFERRED_SIZE, 140,
+														GroupLayout.PREFERRED_SIZE)))
+										.addGroup(gl_panel_4.createSequentialGroup().addGap(12).addComponent(btnPosti_1,
+												GroupLayout.PREFERRED_SIZE, 317, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_panel_4.createSequentialGroup().addContainerGap().addComponent(nome,
+								GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_4.createSequentialGroup().addGap(102).addComponent(lblNewLabel_1)))
+						.addContainerGap(101, Short.MAX_VALUE)));
+		gl_panel_4.setVerticalGroup(gl_panel_4.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_4
+				.createSequentialGroup().addContainerGap().addComponent(lblNewLabel_3_2_1)
+				.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblNewLabel_1)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
 						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addContainerGap()
-									.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-										.addComponent(targa, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnHomeInfo, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-										.addComponent(cognome, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-										.addComponent(modello, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGap(102)
-									.addComponent(lblNewLabel_10))
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGap(92)
-									.addComponent(lblNewLabel_9))
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGap(95)
-									.addComponent(lblNewLabel_8)))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGap(43)
-									.addComponent(list, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE)
-									.addGap(30)
-									.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-										.addComponent(btnCancella)
+								.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
 										.addGroup(gl_panel_4.createSequentialGroup()
-											.addComponent(lblNewLabel_7)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(btnCosto))
-										.addComponent(btnModificaMezzo, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGap(12)
-									.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 317, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(nome, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGap(102)
-							.addComponent(lblNewLabel_1)))
-					.addContainerGap(131, Short.MAX_VALUE))
-		);
-		gl_panel_4.setVerticalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_3_2_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-								.addGroup(gl_panel_4.createSequentialGroup()
-									.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNewLabel_7)
-										.addComponent(btnCosto))
-									.addGap(12)
-									.addComponent(btnCancella)
-									.addGap(13)
-									.addComponent(btnModificaMezzo))
-								.addComponent(list, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED))
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addComponent(targa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblNewLabel_8)
-							.addGap(1)
-							.addComponent(modello, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(3)
-							.addComponent(lblNewLabel_9)
-							.addGap(1)
-							.addComponent(cognome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(2)
-							.addComponent(lblNewLabel_10)
-							.addGap(6)))
-					.addComponent(nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGap(40)
-							.addComponent(btnHomeInfo, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGap(18)
-							.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
-		);
+												.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
+														.addComponent(lblNewLabel_7).addComponent(btnCosto))
+												.addGap(12).addComponent(btnCancella).addGap(13)
+												.addComponent(btnModificaMezzo))
+										.addComponent(list, GroupLayout.PREFERRED_SIZE, 114,
+												GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(ComponentPlacement.RELATED))
+						.addGroup(
+								gl_panel_4.createSequentialGroup()
+										.addComponent(targa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(4).addComponent(lblNewLabel_8).addGap(3)
+										.addComponent(modello, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(lblNewLabel_9).addGap(1)
+										.addComponent(cognome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(2).addComponent(lblNewLabel_10).addGap(6)))
+				.addComponent(nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_4.createSequentialGroup().addGap(40).addComponent(btnHomeInfo,
+								GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_4.createSequentialGroup().addGap(18).addComponent(btnPosti_1,
+								GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
+				.addContainerGap()));
 		panel_4.setLayout(gl_panel_4);
 
 		list.addListSelectionListener(new ListSelectionListener() {
@@ -745,11 +723,20 @@ public class Garage {
 		});
 	}
 
+	/**
+	 * 
+	 * @param b b
+	 */
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		frame.setVisible(b);
 	}
 
+	/**
+	 * fa eseguire delle operazioni tramite la classe controller
+	 * 
+	 * @param controller controller
+	 */
 	public void registraController(Controller controller) {
 		// TODO Auto-generated method stub
 		btnModificaMezzo.addActionListener(controller);
@@ -759,7 +746,7 @@ public class Garage {
 		btnCancella.addActionListener(controller);
 		btnPosti_1.addActionListener(controller);
 		btnPosti.addActionListener(controller);
-		btnCosto.addActionListener(controller); 
+		btnCosto.addActionListener(controller);
 		combo_entrata.addActionListener(controller);
 	}
 }

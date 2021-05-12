@@ -10,7 +10,13 @@ import javax.swing.JOptionPane;
 import model.Veicolo;
 import view.Garage;
 
+/**
+ * questa classe esegue le operazioni del programma
+ * @author andrea cestaro e francesco marsura
+ *
+ */
 public class Controller implements ActionListener {
+
 	private Veicolo d;
 	private Garage g;
 	int posti = 5;
@@ -18,6 +24,12 @@ public class Controller implements ActionListener {
 	int ore;
 	private DefaultListModel<Veicolo> listModel;
 
+	/**
+	 * costruzione controller
+	 * 
+	 * @param listModel lista di veicoli
+	 * @param g         collegamento a garage
+	 */
 	public Controller(DefaultListModel listModel, Garage g) {
 		this.listModel = listModel;
 		this.g = g;
@@ -25,6 +37,11 @@ public class Controller implements ActionListener {
 	}
 
 	@Override
+	/**
+	 * esegue tutte le operazioni del programma: salvataggio veicolo, controllo che
+	 * tutti i campi siano riempiti, eliminazione e modifica del veicolo, esecuzione
+	 * di tutte le varie eccezioni possibili
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		if (arg0.getActionCommand().equalsIgnoreCase("SALVA AUTO")) {

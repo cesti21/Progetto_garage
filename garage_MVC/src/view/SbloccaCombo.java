@@ -5,12 +5,26 @@ import java.awt.event.FocusListener;
 
 import javax.swing.JComboBox;
 
+/**
+ * questa classe serve a risolvere un glitch grafico che affliggeva le combobox
+ * con l'orario di entrata delle finestre di inserimento dati
+ * 
+ * @author andrea cestaro e francesco marsura
+ *
+ */
 public class SbloccaCombo implements FocusListener {
 
 	private JComboBox combo_entrata;
 	private JComboBox combo_entrata_fur;
 	private JComboBox combo_entrata_moto;
 
+	/**
+	 * costruttore sbloccatore
+	 * 
+	 * @param combo_entrata      combobox entrata auto
+	 * @param combo_entrata_fur  combobox entrata furgone
+	 * @param combo_entrata_moto combobox entrata moto
+	 */
 	public SbloccaCombo(JComboBox combo_entrata, JComboBox combo_entrata_fur, JComboBox combo_entrata_moto) {
 
 		this.combo_entrata = combo_entrata;
@@ -39,6 +53,9 @@ public class SbloccaCombo implements FocusListener {
 	}
 
 	@Override
+	/**
+	 * metodo che va registrato sulla finestra affetta dal bug
+	 */
 	public void focusLost(FocusEvent e) {
 		sblocca();
 
