@@ -38,6 +38,7 @@ import java.awt.event.FocusListener;
 
 /**
  * questa classe crea la grafica
+ * 
  * @author andrea cestaro e francesco marsura
  *
  */
@@ -84,6 +85,9 @@ public class Garage {
 	public JComboBox combo_uscita_fur;
 	public JComboBox combo_entrata_moto;
 	public JComboBox combo_uscita_moto;
+	private JLabel lblMoto;
+	private JLabel lblFur;
+	private JButton btnCrediti;
 
 	/**
 	 * costruttore garage
@@ -99,7 +103,7 @@ public class Garage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 864, 353);
+		frame.setBounds(100, 100, 897, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
@@ -167,23 +171,66 @@ public class Garage {
 		});
 		btnPosti.setFont(new Font("Poor Richard", Font.PLAIN, 25));
 		btnPosti.setBackground(Color.WHITE);
+
+		lblMoto = new JLabel("");
+		lblMoto.setIcon(new ImageIcon(Garage.class.getResource("/view/moto.png")));
+
+		lblFur = new JLabel("");
+		lblFur.setIcon(new ImageIcon(Garage.class.getResource("/view/furgone.png")));
+		
+		JLabel lblMacchina = new JLabel("");
+		lblMacchina.setIcon(new ImageIcon(Garage.class.getResource("/view/auto.png")));
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap(335, Short.MAX_VALUE)
-						.addComponent(lblNewLabel).addGap(335))
-				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnAuto).addGap(132)
-						.addComponent(btnFurgone).addGap(124).addComponent(btnMoto)
-						.addContainerGap(121, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni).addGap(84)
-						.addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(24)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnAuto)
-								.addComponent(btnFurgone).addComponent(btnMoto))
-						.addGap(43)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnInformazioni)
-								.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(73, Short.MAX_VALUE)));
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(177)
+					.addComponent(btnInformazioni)
+					.addGap(84)
+					.addComponent(btnPosti)
+					.addContainerGap(155, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(130)
+					.addComponent(btnAuto)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblMacchina, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+					.addGap(54)
+					.addComponent(btnFurgone)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblFur)
+					.addGap(40)
+					.addComponent(btnMoto)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(25, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap(335, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addGap(335))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(lblNewLabel)
+							.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(lblFur, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+									.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
+									.addGroup(Alignment.TRAILING, gl_panel.createParallelGroup(Alignment.BASELINE)
+										.addComponent(btnAuto)
+										.addComponent(btnFurgone)
+										.addComponent(btnMoto))))))
+					.addGap(52)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnInformazioni)
+						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(97, Short.MAX_VALUE))
+		);
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();
@@ -608,7 +655,7 @@ public class Garage {
 			}
 		});
 		btnPosti_1.setFont(new Font("Poor Richard", Font.PLAIN, 25));
-		btnPosti_1.setBackground(SystemColor.inactiveCaptionBorder);
+		btnPosti_1.setBackground(new Color(240, 240, 240));
 
 		btnCosto = new JButton("CALCOLA COSTO");
 		btnCosto.addActionListener(new ActionListener() {
@@ -624,6 +671,14 @@ public class Garage {
 		JLabel lblNewLabel_9 = new JLabel("COGNOME");
 
 		JLabel lblNewLabel_10 = new JLabel("NOME");
+		
+		btnCrediti = new JButton("CREDITI");
+		btnCrediti.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCrediti.setFont(new Font("Poor Richard", Font.PLAIN, 25));
+		btnCrediti.setBackground(new Color(240, 240, 240));
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
@@ -669,8 +724,10 @@ public class Garage {
 							.addContainerGap()
 							.addComponent(nome, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(75, Short.MAX_VALUE))
+							.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnCrediti, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(108, Short.MAX_VALUE))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
@@ -713,7 +770,9 @@ public class Garage {
 							.addComponent(btnHomeInfo, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_4.createSequentialGroup()
 							.addGap(15)
-							.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnCrediti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnPosti_1, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap())
 		);
 		panel_4.setLayout(gl_panel_4);
@@ -763,6 +822,7 @@ public class Garage {
 		btnPosti_1.addActionListener(controller);
 		btnPosti.addActionListener(controller);
 		btnCosto.addActionListener(controller);
+		btnCrediti.addActionListener(controller);
 		combo_entrata.addActionListener(controller);
 	}
 }
