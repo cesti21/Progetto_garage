@@ -2,6 +2,7 @@ package model;
 
 /**
  * questa classe costruisce il veicolo
+ * 
  * @author andrea cestaro e francesco marsura
  *
  */
@@ -21,7 +22,6 @@ public class Veicolo {
 	 * @param nome    nome proprietario
 	 * @param ore     ore di sosta
 	 */
-
 	public Veicolo(String targa, String modello, String cognome, String nome, int ore) {
 		this.targa = targa;
 		this.modello = modello;
