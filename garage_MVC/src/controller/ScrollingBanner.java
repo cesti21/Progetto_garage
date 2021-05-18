@@ -6,17 +6,17 @@ import java.awt.event.*;
 
 public class ScrollingBanner extends JPanel implements Runnable
 {
-  protected Thread banner;      // animation thread
-  protected String text;        // text to be displayed
-  protected Font font;          // font used to display text
-  protected int width;          // width of viewing area in pixels
-  protected int height;         // height of viewing area in pixels
-  protected int x, y;           // current position of text
-  protected int delay;          // interval between frames in millisec
-  protected int offset;         // distance moved between two frames
-  protected Dimension size;     // size of viewing area
-  protected Image image;        // off-screen image
-  protected Graphics offScreen; // off-screen graphics
+  private Thread banner;      // animation thread
+  private String text;        // text to be displayed
+  private Font font;          // font used to display text
+  public int width;          // width of viewing area in pixels
+  public int height;         // height of viewing area in pixels
+  private int x, y;           // current position of text
+  private int delay;          // interval between frames in millisec
+  private int offset;         // distance moved between two frames
+  private Dimension size;     // size of viewing area
+  private Image image;        // off-screen image
+  private Graphics offScreen; // off-screen graphics
   
   public ScrollingBanner( int aWidth, int aHeight )
   {
@@ -26,7 +26,7 @@ public class ScrollingBanner extends JPanel implements Runnable
     setSize ( width, height );
     
     // Set the text
-    text = new String ("Java is fun");
+    text = new String ("Marsura Francesco e Cestaro Andrea");
     
     // Set the font
     font = new Font ( "Sans-serif", Font.BOLD, 24 );

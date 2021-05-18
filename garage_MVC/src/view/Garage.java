@@ -103,7 +103,7 @@ public class Garage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 897, 353);
+		frame.setBounds(100, 100, 899, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
@@ -188,7 +188,7 @@ public class Garage {
 					.addComponent(btnInformazioni)
 					.addGap(84)
 					.addComponent(btnPosti)
-					.addContainerGap(155, Short.MAX_VALUE))
+					.addContainerGap(190, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(130)
 					.addComponent(btnAuto)
@@ -202,9 +202,9 @@ public class Garage {
 					.addComponent(btnMoto)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(25, Short.MAX_VALUE))
+					.addContainerGap(140, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(335, Short.MAX_VALUE)
+					.addContainerGap(370, Short.MAX_VALUE)
 					.addComponent(lblNewLabel)
 					.addGap(335))
 		);
@@ -216,20 +216,19 @@ public class Garage {
 						.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(lblNewLabel)
-							.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
 							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
 								.addComponent(lblFur, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-									.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
-									.addGroup(Alignment.TRAILING, gl_panel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnAuto)
-										.addComponent(btnFurgone)
-										.addComponent(btnMoto))))))
+								.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
+								.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+									.addComponent(btnAuto)
+									.addComponent(btnFurgone)
+									.addComponent(btnMoto)))))
 					.addGap(52)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnInformazioni)
 						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(97, Short.MAX_VALUE))
+					.addContainerGap(81, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 

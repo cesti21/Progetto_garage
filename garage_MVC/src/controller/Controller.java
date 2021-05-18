@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import model.Veicolo;
@@ -239,10 +240,13 @@ public class Controller implements ActionListener {
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
 			JOptionPane.showMessageDialog(null, "RIMANGONO " + posti + " POSTI");
-		} /*
-			 * else if (arg0.getActionCommand().equalsIgnoreCase("CREDITI")) {
-			 * JOptionPane.showMessageDialog(null, ""); }
-			 */
+		} else if (arg0.getActionCommand().equalsIgnoreCase("CREDITI")) {
+			JFrame frame = new JFrame("Scrolling Banner");
+			ScrollingBanner panel = new ScrollingBanner(899, 353);
+			frame.getContentPane().add(panel);
+			frame.setSize(panel.width, panel.height);
+			frame.setVisible(true);
+		}
 
 	}
 }

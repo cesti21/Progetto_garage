@@ -10,7 +10,7 @@ public class Main {
 	public static void main ( String[] args )
 	  {
 	      JFrame frame = new JFrame ( "Scrolling Banner" );
-	      ScrollingBanner panel = new ScrollingBanner ( 400, 400 );
+	      ScrollingBanner panel = new ScrollingBanner ( 899, 33 );
 	      frame.getContentPane().add ( panel );
 	      frame.setSize ( panel.width, panel.height );
 	      frame.setVisible ( true );

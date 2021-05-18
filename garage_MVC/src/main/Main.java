@@ -1,13 +1,19 @@
 package main;
 
 import controller.Controller;
+import controller.ScrollingBanner;
 import model.Veicolo;
 import view.Garage;
 import java.awt.EventQueue;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 
 /**
  * questa classe fa partire l'esecuzione del programma
+ * 
  * @author andrea cestaro e francesco marsura
  *
  */
@@ -22,7 +28,13 @@ public class Main {
 		DefaultListModel listModel = new DefaultListModel<>();
 		Garage g = new Garage(listModel);
 		Controller c = new Controller(listModel, g);
-		g.setVisible(true);
+		/*JFrame frame = new JFrame("Scrolling Banner");
+		ScrollingBanner panel = new ScrollingBanner(899, 353);
+		frame.getContentPane().add(panel);
+		frame.setSize(panel.width, panel.height);
+		frame.setVisible(true);
+		*/g.setVisible(true);
+
 	}
 
 }
