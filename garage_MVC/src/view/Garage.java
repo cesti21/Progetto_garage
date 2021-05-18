@@ -181,60 +181,9 @@ public class Garage {
 		JLabel lblMacchina = new JLabel("");
 		lblMacchina.setIcon(new ImageIcon(Garage.class.getResource("/view/auto.png")));
 		GroupLayout gl_panel = new GroupLayout(panel);
-//<<<<<<< HEAD
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(177)
-					.addComponent(btnInformazioni)
-					.addGap(84)
-					.addComponent(btnPosti)
-					.addContainerGap(190, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(130)
-					.addComponent(btnAuto)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblMacchina, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-					.addGap(54)
-					.addComponent(btnFurgone)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblFur)
-					.addGap(40)
-					.addComponent(btnMoto)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(140, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(370, Short.MAX_VALUE)
-					.addComponent(lblNewLabel)
-					.addGap(335))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblNewLabel)
-							.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(lblFur, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-								.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
-								.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-									.addComponent(btnAuto)
-									.addComponent(btnFurgone)
-									.addComponent(btnMoto)))))
-					.addGap(52)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnInformazioni)
-						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(81, Short.MAX_VALUE))
-		);
-/*=======
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup().addGap(177).addComponent(btnInformazioni).addGap(84)
-						.addComponent(btnPosti).addContainerGap(155, Short.MAX_VALUE))
+						.addComponent(btnPosti).addContainerGap(190, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup().addGap(130).addComponent(btnAuto)
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(lblMacchina, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
@@ -242,28 +191,25 @@ public class Garage {
 						.addComponent(lblFur).addGap(40).addComponent(btnMoto)
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(25, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap(335, Short.MAX_VALUE)
+						.addContainerGap(140, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap(370, Short.MAX_VALUE)
 						.addComponent(lblNewLabel).addGap(335)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
-						.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel.createSequentialGroup().addComponent(lblNewLabel)
-										.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-										.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-												.addComponent(lblFur, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-												.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
-														.addGroup(Alignment.TRAILING,
-																gl_panel.createParallelGroup(Alignment.BASELINE)
-																		.addComponent(btnAuto).addComponent(btnFurgone)
-																		.addComponent(btnMoto))))))
-						.addGap(52)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnInformazioni)
-								.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(97, Short.MAX_VALUE)));
->>>>>>> branch 'master' of https://github.com/cesti21/Progetto_garage.git*/
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
+				.createSequentialGroup().addContainerGap()
+				.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblMoto, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel.createSequentialGroup().addComponent(lblNewLabel)
+								.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(lblFur, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+										.addComponent(lblMacchina, 0, 0, Short.MAX_VALUE)
+										.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnAuto)
+												.addComponent(btnFurgone).addComponent(btnMoto)))))
+				.addGap(52)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnInformazioni)
+						.addComponent(btnPosti, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+				.addContainerGap(81, Short.MAX_VALUE)));
+
 		panel.setLayout(gl_panel);
 
 		panel_1 = new Panel();

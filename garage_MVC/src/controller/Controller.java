@@ -190,8 +190,9 @@ public class Controller implements ActionListener {
 			if (g.list.getSelectedIndex() > -1) {
 				Veicolo d = g.listModel.getElementAt(g.list.getSelectedIndex());
 				// System.out.println(ore);
-				prezzo = ore * 0.5f;
-				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
+				prezzo = g.listModel.get(g.list.getSelectedIndex()).getOre() * 0.5f;
+				JOptionPane.showMessageDialog(null, "HAI SOSTATO PER "
+						+ g.listModel.get(g.list.getSelectedIndex()).getOre() + " ORE E DEVI PAGARE " + prezzo + "€");
 			} else {
 				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
 			}
@@ -203,6 +204,9 @@ public class Controller implements ActionListener {
 				g.modello.setText("");
 				g.cognome.setText("");
 				g.nome.setText("");
+				// JOptionPane.showMessageDialog(null, "HAI SOSTATO PER " +
+				// g.listModel.get(g.list.getSelectedIndex()).getOre() + " ORE E DEVI PAGARE " +
+				// prezzo + "€");
 				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
 				JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
 			} else {

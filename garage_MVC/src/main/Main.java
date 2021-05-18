@@ -28,12 +28,7 @@ public class Main {
 		DefaultListModel listModel = new DefaultListModel<>();
 		Garage g = new Garage(listModel);
 		Controller c = new Controller(listModel, g);
-		/*JFrame frame = new JFrame("Scrolling Banner");
-		ScrollingBanner panel = new ScrollingBanner(899, 353);
-		frame.getContentPane().add(panel);
-		frame.setSize(panel.width, panel.height);
-		frame.setVisible(true);
-		*/g.setVisible(true);
+		g.setVisible(true);
 
 	}
 
