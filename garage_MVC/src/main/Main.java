@@ -8,6 +8,7 @@ import javax.swing.DefaultListModel;
 
 /**
  * questa classe fa partire l'esecuzione del programma
+ * 
  * @author andrea cestaro e francesco marsura
  *
  */

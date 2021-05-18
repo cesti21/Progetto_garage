@@ -239,10 +239,9 @@ public class Controller implements ActionListener {
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("POSTI DISPONIBILI")) {
 			JOptionPane.showMessageDialog(null, "RIMANGONO " + posti + " POSTI");
-		} /*
-			 * else if (arg0.getActionCommand().equalsIgnoreCase("CREDITI")) {
-			 * JOptionPane.showMessageDialog(null, ""); }
-			 */
+		} else if (arg0.getActionCommand().equalsIgnoreCase("CREDITI")) {
+			JOptionPane.showMessageDialog(null, "in fase di sviluppo");
+		}
 
 	}
 }
