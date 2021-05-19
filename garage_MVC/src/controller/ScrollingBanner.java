@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * questa classe serve per utilizzare il thread
+ * 
+ * @author andrea cestaro e francesco marsura
+ *
+ */
 public class ScrollingBanner extends JPanel implements Runnable {
 	private Thread banner; // animazione thread
 	private String text; // testo da visualizzare
@@ -36,7 +42,7 @@ public class ScrollingBanner extends JPanel implements Runnable {
 		font = new Font("Sans-serif", Font.BOLD, 24);
 
 		// setta intervallo di tempo
-		delay = 100;
+		delay = 10;
 
 		// Setta i valori iniziali per x e y
 		x = width / 2;
@@ -71,8 +77,8 @@ public class ScrollingBanner extends JPanel implements Runnable {
 		// aggiusta la posizione del testo nel frame
 		x = x - offset;
 
-		// If the text is completely off to the left end move the
-		// position of the banner to the right edge
+		// se il testo è completamente scomparso al sinistra sposta la posizione del
+		// banner a destra
 		if (x < -length)
 			x = size.width;
 

@@ -198,16 +198,14 @@ public class Controller implements ActionListener {
 			}
 		} else if (arg0.getActionCommand().equalsIgnoreCase("USCITA")) {
 			if (g.list.getSelectedIndex() > -1) {
-				g.listModel.removeElementAt(g.list.getSelectedIndex());
 				posti = posti + 1;
 				g.targa.setText("");
 				g.modello.setText("");
 				g.cognome.setText("");
 				g.nome.setText("");
-				// JOptionPane.showMessageDialog(null, "HAI SOSTATO PER " +
-				// g.listModel.get(g.list.getSelectedIndex()).getOre() + " ORE E DEVI PAGARE " +
-				// prezzo + "€");
-				JOptionPane.showMessageDialog(null, "DEVI PAGARE " + prezzo + "€");
+				JOptionPane.showMessageDialog(null, "HAI SOSTATO PER "
+						+ g.listModel.get(g.list.getSelectedIndex()).getOre() + " ORE E DEVI PAGARE " + prezzo + "€");
+				g.listModel.removeElementAt(g.list.getSelectedIndex());
 				JOptionPane.showMessageDialog(null, "ARRIVEDERCI");
 			} else {
 				JOptionPane.showMessageDialog(null, "SELEZIONA UN VEICOLO");
